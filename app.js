@@ -10,10 +10,6 @@ const PORT = 3030;
 //Indicamos ruta de archivos estaticos
 app.use(express.static(path.join(__dirname,"public")))
 
-//Levantamos el servidor con el metodo listen
-app.listen(PORT, function(){
-    console.log(`Servidor levantado en el puerto ${PORT}`)
-})
 
 //Creo una funcion para unir la ruta absoluta y la del archivo html solicitado
 let rutaHtml = rutaSolicitada => path.join(__dirname, rutaSolicitada)
@@ -81,4 +77,8 @@ app.get("/turing", function(req, res){
 
 app.get("/turing.html", function(req, res){
     res.sendFile(rutaHtml("./views/turing.html"))
+})
+//Levantamos el servidor con el metodo listen
+app.listen(PORT, function(){
+    console.log(`Servidor levantado en el puerto ${PORT}`)
 })
